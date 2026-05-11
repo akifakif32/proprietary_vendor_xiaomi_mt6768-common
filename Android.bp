@@ -4,8 +4,7 @@
 
 soong_namespace {
 	imports: [
-        "hardware/mediatek",
-    ],
+	],
 }
 
 cc_prebuilt_library_shared {
@@ -66,115 +65,11 @@ prebuilt_etc_xml {
 	soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libcodec2_mtk_c2store",
-    owner: "xiaomi",
-    strip: { none: true },
-    shared_libs: [
-        "libcodec2_soft_common", "libcutils", "liblog", "libsfplugin_ccodec_utils",
-        "libstagefright_foundation-v33", "libbase", "libcodec2", "libcodec2_vndk",
-        "libutils", "libion", "libdmabufheap", "libc++", "libc", "libm", "libdl",
-    ],
-    target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcodec2_mtk_c2store.so"],
-        },
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcodec2_mtk_c2store.so"],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_mtk_vdec",
-    owner: "xiaomi",
-    strip: { none: true },
-    shared_libs: [
-        "android.hardware.graphics.bufferqueue@2.0", "libui", "libexpat", "libsync",
-        "libhidlbase", "libhwbinder", "libcodec2_soft_common", "libcutils", "liblog",
-        "libsfplugin_ccodec_utils", "libstagefright_foundation-v33", "libbase",
-        "libcodec2", "libcodec2_vndk", "libutils", "libion", "libdmabufheap",
-        "libcodec2_mtk_c2store", "libcodec2_vpp_qt_plugin", "libcodec2_vpp_rs_plugin",
-        "libc++", "libc", "libm", "libdl",
-    ],
-    target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcodec2_mtk_vdec.so"],
-        },
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcodec2_mtk_vdec.so"],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_mtk_venc",
-    owner: "xiaomi",
-    strip: { none: true },
-    shared_libs: [
-        "android.hardware.graphics.bufferqueue@2.0", "libui", "libexpat", "libsync",
-        "libhidlbase", "libhwbinder", "libcodec2_soft_common", "libcutils", "liblog",
-        "libsfplugin_ccodec_utils", "libstagefright_foundation-v33", "libbase",
-        "libcodec2", "libcodec2_vndk", "libutils", "libion", "libdmabufheap",
-        "libcodec2_mtk_c2store", "libc++", "libc", "libm", "libdl",
-    ],
-    target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcodec2_mtk_venc.so"],
-        },
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcodec2_mtk_venc.so"],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_vpp_qt_plugin",
-    owner: "xiaomi",
-    strip: { none: true },
-    shared_libs: [
-        "libcodec2_soft_common", "libsfplugin_ccodec_utils", "libstagefright_foundation-v33",
-        "libcodec2", "libcodec2_vndk", "liblog", "libbase", "libutils", "libcutils", "libc++", "libc", "libm", "libdl",
-    ],
-    target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcodec2_vpp_qt_plugin.so"],
-        },
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcodec2_vpp_qt_plugin.so"],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libcodec2_vpp_rs_plugin",
-    owner: "xiaomi",
-    strip: { none: true },
-    shared_libs: [
-        "libcodec2_soft_common", "libsfplugin_ccodec_utils", "libstagefright_foundation-v33",
-        "libcodec2", "libcodec2_vndk", "liblog", "libbase", "libutils", "libcutils", "libc++", "libc", "libm", "libdl",
-    ],
-    target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcodec2_vpp_rs_plugin.so"],
-        },
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcodec2_vpp_rs_plugin.so"],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
+prebuilt_etc_xml {
+	name: "manifest_media_c2_V1_1_default",
+	owner: "xiaomi",
+	src: "proprietary/vendor/etc/vintf/manifest/manifest_media_c2_V1_1_default.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
 }
